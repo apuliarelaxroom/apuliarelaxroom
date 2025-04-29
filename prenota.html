@@ -28,7 +28,7 @@
     .container {
       background-color: rgba(0, 0, 0, 0.6);
       padding: 30px;
-      max-width: 600px;
+      max-width: 700px;
       margin: 40px auto;
       border-radius: 10px;
     }
@@ -58,8 +58,14 @@
       border-radius: 5px;
       cursor: pointer;
     }
-    button:hover {
-      background-color: #c45656;
+    .info {
+      margin-top: 20px;
+      font-size: 0.9rem;
+    }
+    .totale {
+      font-size: 1.2rem;
+      text-align: right;
+      margin-top: 20px;
     }
   </style>
 </head>
@@ -73,29 +79,82 @@
 
   <div class="container">
     <h1>Prenota il tuo soggiorno</h1>
-    <form action="https://wa.me/393478210241" target="_blank">
-      <label for="nome">Nome</label>
-      <input type="text" id="nome" name="nome" required>
-
-      <label for="data">Data di Arrivo</label>
-      <input type="date" id="data" name="data" required>
-
-      <label for="servizi">Servizi Aggiuntivi</label>
-      <select id="servizi" name="servizi" multiple>
-        <option>Spillatura di Rosato Fresco</option>
-        <option>Aperitivo di Benvenuto</option>
-        <option>Prosecco Mionetto</option>
-        <option>Vassoio di Pasticcini</option>
-        <option>Allestimento romantico</option>
-        <option>Massaggio rilassante</option>
-        <option>Piscina esterna</option>
+    <p><em>* Preghiamo di completare questo form e controlleremo la disponibilità.</em></p>
+    <form id="formPrenotazione">
+      <label>Nome</label>
+      <input type="text" id="nome" required>
+      <label>Cognome</label>
+      <input type="text" id="cognome" required>
+      <label>Cellulare</label>
+      <input type="tel" id="telefono" required>
+      <label>Email</label>
+      <input type="email" id="email" required>
+      <label>Data di arrivo</label>
+      <input type="date" id="data" required>
+      <label>Numero di persone (età minima 13 anni)</label>
+      <select id="persone" required>
+        <option value="1">1 persona</option>
+        <option value="2">2 persone</option>
+        <option value="3">3 persone</option>
+        <option value="4">4 persone</option>
       </select>
 
-      <label for="note">Note</label>
-      <textarea id="note" name="note" rows="4"></textarea>
+      <label>Servizi extra:</label>
+      <input type="checkbox" class="extra" value="15"> 🍷 Spillatura di Rosato (€15)<br>
+      <input type="checkbox" class="extra" value="40"> 🍱 Aperitivo di Benvenuto (€40)<br>
+      <input type="checkbox" class="extra" value="20"> 🍾 Prosecco Mionetto (€20)<br>
+      <input type="checkbox" class="extra" value="25"> 🧁 Vassoio di Pasticcini (€25)<br>
+      <input type="checkbox" class="extra" value="30"> 🌹 Addobbo romantico (€30)<br>
+      <input type="checkbox" class="extra" value="55"> 💆 Massaggio 40 minuti (€55)<br>
+      <input type="checkbox" class="extra" value="50"> 💦 Piscina Esterna (€50)<br>
+      <br><strong>☕ Colazione omaggio</strong><br>
 
-      <button type="submit">Prenota via WhatsApp</button>
+      <label>Note</label>
+      <textarea id="note" rows="3"></textarea>
+
+      <div class="totale">Totale: €<span id="totale">0.00</span></div>
+      <button type="button" onclick="inviaPrenotazione()">Prenota via WhatsApp</button>
+
+      <div class="info">
+        <p>Pagamento: 50% acconto e saldo all'arrivo.</p>
+        <p>Check-in: dalle 18:00 alle 21:00 – Check-out: entro le 10:00</p>
+      </div>
     </form>
   </div>
+
+  <script>
+    function calcolaTotale() {
+      const persone = parseInt(document.getElementById('persone').value) || 0;
+      let totale = persone * 80;
+      document.querySelectorAll('.extra').forEach(el => {
+        if (el.checked) totale += parseFloat(el.value);
+      });
+      document.getElementById('totale').innerText = totale.toFixed(2);
+      return totale;
+    }
+
+    document.querySelectorAll('input, select').forEach(el => {
+      el.addEventListener('change', calcolaTotale);
+    });
+
+    function inviaPrenotazione() {
+      const nome = document.getElementById('nome').value;
+      const cognome = document.getElementById('cognome').value;
+      const telefono = document.getElementById('telefono').value;
+      const email = document.getElementById('email').value;
+      const data = document.getElementById('data').value;
+      const persone = document.getElementById('persone').value;
+      const note = document.getElementById('note').value;
+      const totale = calcolaTotale();
+      let servizi = [];
+      document.querySelectorAll('.extra').forEach(el => {
+        if (el.checked) servizi.push(el.nextSibling.textContent.trim());
+      });
+
+      let msg = `Prenotazione Apulia Relax Room:%0A🧍 Nome: ${nome} ${cognome}%0A📞 Tel: ${telefono}%0A📧 Email: ${email}%0A📅 Data: ${data}%0A👥 Persone: ${persone}%0A🛎 Extra: ${servizi.join(', ')}%0A📝 Note: ${note}%0A💰 Totale: €${totale.toFixed(2)}%0A✅ Pagamento 50% + saldo all'arrivo.%0A🕐 Check-in 18-21, Check-out entro le 10`;
+
+      window.open(`https://wa.me/393478210241?text=${msg}`, '_blank');
+    }
+  </script>
 </body>
 </html>
