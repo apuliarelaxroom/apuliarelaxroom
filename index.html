@@ -1,121 +1,133 @@
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Apulia Relax Room</title>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans&display=swap" rel="stylesheet">
+  <title>Prenota - Apulia Relax Room</title>
   <style>
     body {
-      margin: 0;
-      font-family: 'Open Sans', sans-serif;
-      background-color: #f5f5f5;
+      font-family: sans-serif;
+      background: #f8f8f8;
       color: #333;
+      padding: 40px;
     }
-    header {
-      background-image: url('https://images.unsplash.com/photo-1610915786803-6f69430643f6');
-      background-size: cover;
-      background-position: center;
+    h1 {
       text-align: center;
-      padding: 100px 20px;
-      color: white;
-      position: relative;
-    }
-    header::after {
-      content: "";
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.5);
-    }
-    header h1 {
-      font-family: 'Great Vibes', cursive;
-      font-size: 4rem;
-      margin: 0;
-      position: relative;
-      z-index: 2;
-    }
-    header p {
-      font-size: 1.3rem;
-      margin-top: 20px;
-      position: relative;
-      z-index: 2;
-    }
-    section {
-      padding: 60px 20px;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-    h2 {
-      font-family: 'Great Vibes', cursive;
       font-size: 2.5rem;
       color: #7e5a4b;
     }
-    ul.services li {
-      margin: 10px 0;
-      list-style: none;
-      padding-left: 0;
+    form {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 600px;
+      margin: auto;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
     }
-    .cta-button {
-      background-color: #7e5a4b;
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    input, textarea, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    .checkboxes label {
+      display: block;
+      font-weight: normal;
+    }
+    .total {
+      margin-top: 20px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-align: right;
+    }
+    button {
+      display: block;
+      background: #7e5a4b;
       color: white;
-      padding: 15px 25px;
+      padding: 15px;
       border: none;
       border-radius: 5px;
-      text-decoration: none;
-      font-size: 1rem;
-      display: inline-block;
+      font-size: 1.2rem;
+      cursor: pointer;
+      width: 100%;
       margin-top: 20px;
     }
-    .cta-button:hover {
-      background-color: #a17361;
-    }
-    iframe {
-      width: 100%;
-      height: 600px;
-      border: none;
+    button:hover {
+      background: #a17361;
     }
   </style>
 </head>
 <body>
-  <header>
-    <img src="logo.png" alt="Apulia Relax Room" style="width: 300px; position: relative; z-index: 2;">
-    <h1>Un soggiorno rilassante a Manduria</h1>
-    <p>Nel cuore del centro storico, tra luminarie e benessere</p>
-  </header>
+  <h1>Prenota il tuo soggiorno</h1>
+  <form id="bookingForm">
+    <label>Nome e Cognome</label>
+    <input type="text" id="name" required>
 
-  <section>
-    <h2>Chi siamo</h2>
-    <p>Apulia Relax Room è una caratteristica Tavernetta a botte con accesso autonomo tramite codice PIN e comodo ascensore. Include vasca idromassaggio riscaldata, Wi-Fi, TV, controllo luci touch e arredamento tipico del posto con botti refrigerate per spillare il vino Primitivo di Manduria.</p>
-  </section>
+    <label>Email</label>
+    <input type="email" id="email" required>
 
-  <section>
-    <h2>Servizi</h2>
-    <ul class="services">
-      <li>🍷 Spillatura di Vino Rosato – 15,00€</li>
-      <li>🍱 Aperitivo di Benvenuto – 40,00€</li>
-      <li>🍾 Prosecco Mionetto – 20,00€</li>
-      <li>🧁 Vassoio di Pasticcini – 25,00€</li>
-      <li>🌹 Addobbo romantico – 30,00€</li>
-      <li>💆 Massaggio 40 minuti – 55,00€/persona</li>
-      <li>💦 Piscina Esterna (Giugno-Settembre) – 50,00€</li>
-      <li>🛏 Pernotto – 160,00€ (colazione, caffè, idromassaggio inclusi)</li>
-    </ul>
-  </section>
+    <label>Telefono</label>
+    <input type="tel" id="phone" required>
 
-  <section>
-    <h2>Prenota Ora</h2>
-    <p>Verifica disponibilità e prenota direttamente con Calendly:</p>
-    <iframe src="https://calendly.com/tuo-username"></iframe>
-    <a href="#" class="cta-button">Paga Subito (-5%)</a>
-    <a href="#" class="cta-button">Paga Acconto (30%)</a>
-  </section>
+    <label>Data di arrivo</label>
+    <input type="date" id="date" required>
 
-  <section>
-    <h2>Contatti</h2>
-    <p>📍 Via Nicola Donadio 10, Manduria (TA)</p>
-    <p>📞 +39 388 492 00 55 | ✉️ info@apuliarelaxroom.it</p>
-    <iframe src="https://www.google.com/maps/embed?..."></iframe>
-  </section>
+    <label>Servizi aggiuntivi</label>
+    <div class="checkboxes">
+      <label><input type="checkbox" value="15" class="service"> 🍷 Spillatura di Vino Rosato – €15</label>
+      <label><input type="checkbox" value="40" class="service"> 🍱 Aperitivo di Benvenuto – €40</label>
+      <label><input type="checkbox" value="20" class="service"> 🍾 Prosecco Mionetto – €20</label>
+      <label><input type="checkbox" value="25" class="service"> 🧁 Vassoio di Pasticcini – €25</label>
+      <label><input type="checkbox" value="30" class="service"> 🌹 Addobbo romantico – €30</label>
+      <label><input type="checkbox" value="55" class="service"> 💆 Massaggio 40 minuti – €55</label>
+      <label><input type="checkbox" value="50" class="service"> 💦 Piscina Esterna – €50</label>
+    </div>
+
+    <p><strong>Check-in:</strong> dalle ore 18:00 alle 20:00<br>
+       <strong>Check-out:</strong> entro le ore 10:00</p>
+
+    <div class="total">Totale: €<span id="total">160</span></div>
+
+    <button type="button" onclick="sendWhatsApp()">PRENOTA</button>
+  </form>
+
+  <script>
+    const services = document.querySelectorAll('.service');
+    const totalEl = document.getElementById('total');
+    let base = 160;
+
+    services.forEach(el => {
+      el.addEventListener('change', () => {
+        let sum = base;
+        services.forEach(s => {
+          if (s.checked) sum += parseFloat(s.value);
+        });
+        totalEl.textContent = sum.toFixed(2);
+      });
+    });
+
+    function sendWhatsApp() {
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const phone = document.getElementById('phone').value;
+      const date = document.getElementById('date').value;
+      const total = totalEl.textContent;
+      let servizi = [];
+      services.forEach(s => {
+        if (s.checked) servizi.push(s.parentElement.textContent.trim());
+      });
+
+      let message = `Prenotazione Apulia Relax Room%0A👤 Nome: ${name}%0A📅 Data: ${date}%0A📞 Tel: ${phone}%0A✉️ Email: ${email}%0A🧾 Servizi: ${servizi.join(', ')}%0A💰 Totale: €${total}%0A🕐 Check-in 18:00-20:00 | Check-out entro le 10:00`;
+
+      window.open(`https://wa.me/393884920055?text=${message}`, '_blank');
+    }
+  </script>
 </body>
 </html>
