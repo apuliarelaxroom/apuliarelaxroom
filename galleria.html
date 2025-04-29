@@ -1,0 +1,142 @@
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Galleria - Apulia Relax Room</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      background: url('https://images.unsplash.com/photo-1604774880388-53b5f99689c1') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+    }
+    nav {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 10px 20px;
+      text-align: center;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 1.2rem;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .gallery-container {
+      max-width: 900px;
+      margin: 50px auto;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 20px;
+      border-radius: 10px;
+    }
+    .slideshow-container {
+      position: relative;
+      max-width: 100%;
+    }
+    .mySlides {
+      display: none;
+    }
+    img {
+      width: 100%;
+      border-radius: 10px;
+    }
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      margin-top: -22px;
+      padding: 16px;
+      color: white;
+      font-weight: bold;
+      font-size: 24px;
+      transition: 0.3s;
+      user-select: none;
+    }
+    .next {
+      right: 0;
+    }
+    .prev {
+      left: 0;
+    }
+    .prev:hover, .next:hover {
+      background-color: rgba(0,0,0,0.8);
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="prenota.html">Prenota</a>
+    <a href="galleria.html">Galleria</a>
+  </nav>
+
+  <div class="gallery-container">
+    <div class="slideshow-container">
+
+      <div class="mySlides">
+        <img src="WhatsApp Image 2025-04-29 at 17.11.12.jpeg" alt="Foto 1">
+      </div>
+    
+      <div class="mySlides">
+        <img src="WhatsApp Image 2025-04-29 at 17.11.12 (1).jpeg" alt="Foto 2">
+      </div>
+    
+      <div class="mySlides">
+        <img src="WhatsApp Image 2025-04-29 at 17.11.12 (2).jpeg" alt="Foto 3">
+      </div>
+    
+      <div class="mySlides">
+        <img src="WhatsApp Image 2025-04-29 at 17.11.12 (3).jpeg" alt="Foto 4">
+      </div>
+    
+      <div class="mySlides">
+        <img src="WhatsApp Image 2025-04-29 at 17.11.12 (4).jpeg" alt="Foto 5">
+      </div>
+    
+      <div class="mySlides">
+        <img src="WhatsApp Image 2025-04-29 at 17.11.11 (2).jpeg" alt="Foto 6">
+      </div>
+    
+      <div class="mySlides">
+        <img src="WhatsApp Image 2025-04-29 at 17.11.11 (3).jpeg" alt="Foto 7">
+      </div>
+    
+      <div class="mySlides">
+        <img src="WhatsApp Image 2025-04-29 at 17.11.11 (4).jpeg" alt="Foto 8">
+      </div>
+    
+      <div class="mySlides">
+        <img src="WhatsApp Image 2025-04-29 at 17.11.13.jpeg" alt="Foto 9">
+      </div>
+    
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+  </div>
+
+  <script>
+    let slideIndex = 1;
+    showSlides(slideIndex);
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+    function showSlides(n) {
+      let i;
+      const slides = document.getElementsByClassName("mySlides");
+      if (n > slides.length) slideIndex = 1;
+      if (n < 1) slideIndex = slides.length;
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slides[slideIndex-1].style.display = "block";
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prenota - Apulia Relax Room</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background: #f8f8f8;
+      color: #333;
+      padding: 40px;
+      margin: 0;
+    }
+    nav {
+      background: #7e5a4b;
+      padding: 10px 20px;
+      text-align: center;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 1.2rem;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      color: #7e5a4b;
+    }
+    form {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 600px;
+      margin: auto;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    input, textarea, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    .checkboxes label {
+      display: block;
+      font-weight: normal;
+    }
+    .total {
+      margin-top: 20px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-align: right;
+    }
+    button {
+      display: block;
+      background: #7e5a4b;
+      color: white;
+      padding: 15px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 20px;
+    }
+    button:hover {
+      background: #a17361;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="prenota.html">Prenota</a>
+    <a href="galleria.html">Galleria</a>
+  </nav>
+
+  <h1>Prenota il tuo soggiorno</h1>
+  <form id="bookingForm">
+    <label>Nome e Cognome</label>
+    <input type="text" id="name" required>
+
+    <label>Email</label>
+    <input type="email" id="email" required>
+
+    <label>Telefono</label>
+    <input type="tel" id="phone" required>
+
+    <label>Data di arrivo</label>
+    <input type="date" id="date" required>
+
+    <label>Servizi aggiuntivi</label>
+    <div class="checkboxes">
+      <label><input type="checkbox" value="15" class="service"> 🍷 Spillatura di Vino Rosato – €15</label>
+      <label><input type="checkbox" value="40" class="service"> 🍱 Aperitivo di Benvenuto – €40</label>
+      <label><input type="checkbox" value="20" class="service"> 🍾 Prosecco Mionetto – €20</label>
+      <label><input type="checkbox" value="25" class="service"> 🧁 Vassoio di Pasticcini – €25</label>
+      <label><input type="checkbox" value="30" class="service"> 🌹 Addobbo romantico – €30</label>
+      <label><input type="checkbox" value="55" class="service"> 💆 Massaggio 40 minuti – €55</label>
+      <label><input type="checkbox" value="50" class="service"> 💦 Piscina Esterna – €50</label>
+    </div>
+
+    <p><strong>Check-in:</strong> dalle ore 18:00 alle 20:00<br>
+       <strong>Check-out:</strong> entro le ore 10:00</p>
+
+    <div class="total">Totale: €<span id="total">160</span></div>
+
+    <button type="button" onclick="sendWhatsApp()">PRENOTA</button>
+  </form>
+
+  <script>
+    const services = document.querySelectorAll('.service');
+    const totalEl = document.getElementById('total');
+    let base = 160;
+
+    services.forEach(el => {
+      el.addEventListener('change', () => {
+        let sum = base;
+        services.forEach(s => {
+          if (s.checked) sum += parseFloat(s.value);
+        });
+        totalEl.textContent = sum.toFixed(2);
+      });
+    });
+
+    function sendWhatsApp() {
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const phone = document.getElementById('phone').value;
+      const date = document.getElementById('date').value;
+      const total = totalEl.textContent;
+      let servizi = [];
+      services.forEach(s => {
+        if (s.checked) servizi.push(s.parentElement.textContent.trim());
+      });
+
+      let message = `Prenotazione Apulia Relax Room%0A👤 Nome: ${name}%0A📅 Data: ${date}%0A📞 Tel: ${phone}%0A✉️ Email: ${email}%0A🧾 Servizi: ${servizi.join(', ')}%0A💰 Totale: €${total}%0A🕐 Check-in 18:00-20:00 | Check-out entro le 10:00`;
+
+      window.open(`https://wa.me/393884920055?text=${message}`, '_blank');
+    }
+  </script>
+</body>
+</html>
