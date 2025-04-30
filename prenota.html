@@ -3,134 +3,148 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <title>Prenota - Apulia Relax Room</title>
+    <title>Prenota il Tuo Soggiorno</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-image: url('sfondo.jpg');
-            background-size: cover;
+            background: #666;
             color: white;
             padding: 20px;
+        }
+        h1 {
+            text-align: center;
         }
         form {
-            background-color: rgba(0,0,0,0.6);
+            max-width: 700px;
+            margin: auto;
+            background: #444;
             padding: 20px;
             border-radius: 10px;
-            max-width: 600px;
-            margin: auto;
         }
-        h1, h2 {
-            text-align: center;
-        }
-        label {
+        label, input, select, textarea {
             display: block;
-            margin-top: 15px;
-            margin-bottom: 5px;
-        }
-        input, select, textarea {
             width: 100%;
-            padding: 8px;
-            border-radius: 5px;
-            border: none;
+            margin-bottom: 15px;
         }
-        .checkbox-row {
+        .extras {
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            margin: 5px 0;
         }
-        .checkbox-row input {
+        .extras label {
+            flex: 1;
             margin-right: 10px;
         }
-        .extra-section {
-            margin-top: 20px;
+        .extras input[type="checkbox"] {
+            width: auto;
         }
-        #total {
-            font-size: 18px;
+        .total {
+            font-size: 1.2em;
+            margin: 20px 0;
             font-weight: bold;
-            margin-top: 15px;
-            text-align: center;
         }
-        .whatsapp-button {
-            display: block;
-            width: 100%;
-            padding: 10px;
-            background-color: #25D366;
+        button {
+            padding: 10px 20px;
+            background: #28a745;
             color: white;
-            font-size: 16px;
-            text-align: center;
-            text-decoration: none;
+            font-size: 1em;
+            border: none;
+            cursor: pointer;
             border-radius: 5px;
-            margin-top: 20px;
+        }
+        .note {
+            font-size: 0.9em;
+            font-style: italic;
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
-    <form id="bookingForm">
-        <h1>Prenota il tuo soggiorno</h1>
-        <label>Nome</label><input type="text" name="nome" required>
-        <label>Cognome</label><input type="text" name="cognome" required>
-        <label>Cellulare</label><input type="tel" name="cellulare" required>
-        <label>Email</label><input type="email" name="email" required>
-        <label>Data</label><input type="date" name="data" required>
-        <label>Quante persone?</label>
-        <select name="persone" id="persone" required onchange="calcolaTotale()">
-            <option value="">Seleziona</option>
+
+<h1>Prenota il tuo soggiorno</h1>
+
+<form id="bookingForm">
+    <label>Nome: <input type="text" name="nome" required></label>
+    <label>Cognome: <input type="text" name="cognome" required></label>
+    <label>Cellulare: <input type="tel" name="telefono" required></label>
+    <label>Email: <input type="email" name="email" required></label>
+    <label>Data del soggiorno: <input type="date" name="data" required></label>
+
+    <label>Quante persone? (min. 13 anni, €80 a persona): 
+        <select id="persone" name="persone" required>
             <option value="1">1 persona (€80)</option>
             <option value="2">2 persone (€160)</option>
             <option value="3">3 persone (€240)</option>
             <option value="4">4 persone (€320)</option>
         </select>
-        <p>* Età minima 13 anni per il pernotto.</p>
+    </label>
 
-        <div class="extra-section">
-            <h2>Servizi extra:</h2>
-            <div class="checkbox-row"><input type="checkbox" value="15" onchange="calcolaTotale()">🍷 Spillatura di Rosato (€15)</div>
-            <div class="checkbox-row"><input type="checkbox" value="40" onchange="calcolaTotale()">🍱 Aperitivo di Benvenuto (€40)</div>
-            <div class="checkbox-row"><input type="checkbox" value="20" onchange="calcolaTotale()">🍾 Prosecco Mionetto (€20)</div>
-            <div class="checkbox-row"><input type="checkbox" value="25" onchange="calcolaTotale()">🧁 Vassoio di Pasticcini (€25)</div>
-            <div class="checkbox-row"><input type="checkbox" value="30" onchange="calcolaTotale()">🌹 Addobbo romantico (€30)</div>
-            <div class="checkbox-row"><input type="checkbox" value="55" onchange="calcolaTotale()">💆‍♀️ Massaggio 40 minuti (€55)</div>
-            <div class="checkbox-row"><input type="checkbox" value="50" onchange="calcolaTotale()">💦 Piscina Esterna (€50)</div>
-            <p>☕ <strong>Colazione omaggio</strong></p>
-        </div>
+    <h3>Servizi extra:</h3>
 
-        <label>Note</label><textarea name="note" rows="4"></textarea>
-        <p style="margin-top:10px;">* Compila questo modulo: ti risponderemo al più presto con la disponibilità e i dettagli per la conferma.</p>
-        <p><strong>Pagamento:</strong> 50% acconto e saldo all'arrivo.</p>
-        <p><strong>Check-in:</strong> dalle 18:00 alle 21:00 | <strong>Check-out:</strong> entro le 10:00</p>
+    <div class="extras"><label>🍷 Spillatura di Rosato (€15)</label><input type="checkbox" value="15" class="extra"></div>
+    <div class="extras"><label>🍱 Aperitivo di Benvenuto (€40)</label><input type="checkbox" value="40" class="extra"></div>
+    <div class="extras"><label>🍾 Prosecco Mionetto (€20)</label><input type="checkbox" value="20" class="extra"></div>
+    <div class="extras"><label>🧁 Vassoio di Pasticcini (€25)</label><input type="checkbox" value="25" class="extra"></div>
+    <div class="extras"><label>🌹 Addobbo romantico (€30)</label><input type="checkbox" value="30" class="extra"></div>
+    <div class="extras"><label>💆‍♂️ Massaggio 40 minuti (€55)</label><input type="checkbox" value="55" class="extra"></div>
+    <div class="extras"><label>💦 Piscina Esterna (€50)</label><input type="checkbox" value="50" class="extra"></div>
 
-        <div id="total">Totale: €0</div>
-        <a id="whatsappLink" class="whatsapp-button" target="_blank">Invia su WhatsApp</a>
-    </form>
+    <p>☕ <strong>Colazione omaggio</strong></p>
 
-    <script>
-        function calcolaTotale() {
-            const select = document.getElementById('persone');
-            const base = parseInt(select.value || 0) * 80;
-            let extra = 0;
-            document.querySelectorAll('input[type=checkbox]').forEach(cb => {
-                if (cb.checked) extra += parseInt(cb.value);
-            });
-            document.getElementById('total').innerText = 'Totale: €' + (base + extra);
-            aggiornaLinkWhatsapp(base + extra);
-        }
+    <label>Note: <textarea name="note"></textarea></label>
 
-        function aggiornaLinkWhatsapp(totale) {
-            const form = document.forms['bookingForm'];
-            const nome = form['nome'].value;
-            const cognome = form['cognome'].value;
-            const cell = form['cellulare'].value;
-            const email = form['email'].value;
-            const data = form['data'].value;
-            const persone = form['persone'].value;
-            const note = form['note'].value;
-            let extras = [];
-            document.querySelectorAll('input[type=checkbox]').forEach(cb => {
-                if (cb.checked) extras.push(cb.parentNode.textContent.trim());
-            });
-            const msg = `Prenotazione da ${nome} ${cognome}%0A📞 ${cell} | 📧 ${email}%0A🗓 Data: ${data}%0A👥 Persone: ${persone}%0AExtra: ${extras.join(', ')}%0A💶 Totale: €${totale}%0A📌 Note: ${note}`;
-            document.getElementById('whatsappLink').href = `https://wa.me/?text=${encodeURIComponent(msg)}`;
-        }
-    </script>
+    <div class="note">Compila il modulo per ricevere conferma sulla disponibilità.</div>
+    <p><strong>Check-in:</strong> dalle 18:00 alle 21:00<br>
+    <strong>Check-out:</strong> entro le 10:00<br>
+    <strong>Pagamento:</strong> 50% acconto, saldo all’arrivo</p>
+
+    <div class="total" id="totale">Totale: €80</div>
+
+    <button type="button" onclick="inviaWhatsApp()">Prenota su WhatsApp</button>
+</form>
+
+<script>
+    const extraCheckboxes = document.querySelectorAll('.extra');
+    const personeSelect = document.getElementById('persone');
+    const totaleElement = document.getElementById('totale');
+
+    function calcolaTotale() {
+        const persone = parseInt(personeSelect.value);
+        let totale = persone * 80;
+        extraCheckboxes.forEach(c => {
+            if (c.checked) totale += parseInt(c.value);
+        });
+        totaleElement.textContent = `Totale: €${totale}`;
+    }
+
+    personeSelect.addEventListener('change', calcolaTotale);
+    extraCheckboxes.forEach(c => c.addEventListener('change', calcolaTotale));
+
+    function inviaWhatsApp() {
+        const form = document.forms['bookingForm'];
+        const nome = form.nome.value;
+        const cognome = form.cognome.value;
+        const telefono = form.telefono.value;
+        const email = form.email.value;
+        const data = form.data.value;
+        const persone = form.persone.value;
+        const note = form.note.value;
+        let extras = [];
+        extraCheckboxes.forEach(c => {
+            if (c.checked) extras.push(c.parentElement.innerText.trim());
+        });
+        const total = totaleElement.textContent;
+
+        let messaggio = `Prenotazione Apulia Relax Room:%0A`;
+        messaggio += `Nome: ${nome}%0ACognome: ${cognome}%0ACellulare: ${telefono}%0AEmail: ${email}%0A`;
+        messaggio += `Data: ${data}%0APersone: ${persone}%0AServizi Extra: ${extras.join(', ')}%0A`;
+        messaggio += `Note: ${note}%0A${total}%0A`;
+        messaggio += `Check-in 18–21 | Check-out entro le 10 | Pagamento: 50% acconto + saldo all’arrivo`;
+
+        const numero = '393661862117';
+        window.open(`https://wa.me/${numero}?text=${messaggio}`, '_blank');
+    }
+</script>
+
 </body>
 </html>
