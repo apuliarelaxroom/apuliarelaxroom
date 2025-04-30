@@ -2,110 +2,79 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <title>Apulia Relax Room</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;600&display=swap" rel="stylesheet">
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body, html {
-      height: 100%;
-      font-family: 'Open Sans', sans-serif;
-      color: white;
-      background: url('background.jpg') no-repeat center center fixed;
-      background-size: cover;
-    }
-    .overlay {
-      background: rgba(0, 0, 0, 0.55);
-      min-height: 100%;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      padding: 30px 20px 60px;
-    }
-    nav {
-      width: 100%;
-      text-align: center;
-      margin-bottom: 30px;
-    }
-    nav a {
-      margin: 0 25px;
-      text-decoration: none;
-      font-weight: 600;
-      color: white;
-      font-size: 1.2rem;
-      padding: 10px;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    img.logo {
-      max-width: 300px;
-      margin-bottom: 30px;
-    }
-    .section {
-      max-width: 700px;
-      margin-bottom: 30px;
-      font-size: 1.1rem;
-      line-height: 1.6;
-    }
-    .section h2 {
-      margin-bottom: 10px;
-      font-weight: 600;
-      font-size: 1.4rem;
-    }
-    .contact-info {
-      font-size: 1rem;
-      margin-bottom: 10px;
-    }
-    .social a {
-      color: white;
-      margin: 0 10px;
-      font-weight: bold;
-      text-decoration: none;
-    }
-    .social a:hover {
-      text-decoration: underline;
-    }
-    footer {
-      margin-top: 40px;
-      font-size: 0.9rem;
-      color: #ddd;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>Apulia Relax Room</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('background.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+        }
+        nav {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 15px 0;
+        }
+        nav a {
+            color: white;
+            margin: 0 20px;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .logo {
+            margin-top: 40px;
+        }
+        .logo img {
+            max-width: 300px;
+        }
+        .description {
+            max-width: 800px;
+            margin: 30px auto;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        .contacts {
+            margin-top: 30px;
+            font-size: 16px;
+        }
+        .contacts a {
+            color: white;
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-  <div class="overlay">
     <nav>
-      <a href="index.html">Chi siamo</a>
-      <a href="galleria.html">I nostri servizi</a>
-      <a href="prenota.html">Prenota</a>
+        <a href="index.html">Home</a>
+        <a href="servizi.html">I nostri servizi</a>
+        <a href="galleria.html">Galleria</a>
+        <a href="prenota.html">Prenota</a>
     </nav>
 
-    <img src="logo.png" alt="Apulia Relax Room" class="logo">
-
-    <div class="section">
-      
-      <p>Apulia Relax Room è una caratteristica Tavernetta a botte con accesso autonomo tramite codice PIN e comodo ascensore. Include vasca idromassaggio riscaldata, Wi-Fi, TV, controllo luci touch per creare atmosfere uniche e arredamento tipico del posto con botti refrigerate per spillare il vino Primitivo di Manduria. Ideale per un soggiorno rilassante nel cuore del centro storico di Manduria.</p>
+    <div class="logo">
+        <img src="logo.png" alt="Logo Apulia Relax Room">
     </div>
 
-    <div class="section contact-info">
-      📍 Via Nicola Donadio 10, Manduria (TA) <br>
-      📱 <a href="https://wa.me/393478210241" style="color:white;">Scrivici su WhatsApp</a>
+    <div class="description">
+        Apulia Relax Room è una caratteristica Tavernetta a botte con accesso autonomo tramite codice PIN e comodo ascensore. 
+        Include vasca idromassaggio riscaldata, Wi-Fi, TV, controllo luci touch per creare atmosfere uniche e arredamento tipico 
+        del posto con botti refrigerate per spillare il vino Primitivo di Manduria. Ideale per un soggiorno rilassante nel cuore 
+        del centro storico di Manduria.
     </div>
 
-    <div class="section social">
-      Seguici su:
-      <a href="https://www.instagram.com/apuliarelaxroom/" target="_blank">Instagram</a> |
-      <a href="https://www.facebook.com/apuliarelaxroom" target="_blank">Facebook</a>
+    <div class="contacts">
+        📍 Via Nicola Donadio 10, Manduria (TA)<br>
+        📱 <a href="https://wa.me/393396361081">Scrivici su WhatsApp</a><br><br>
+        Seguici su: <a href="https://www.instagram.com/apuliarelaxroom/">Instagram</a> | 
+        <a href="https://www.facebook.com/apuliarelaxroom">Facebook</a><br><br>
+        CIS: TA07301291000032252 - CIN: IT073012C200073011
     </div>
-
-    <footer>
-      CIS: TA07301291000032252 · CIN: IT073012C200073011<br>
-      &copy; 2025 Apulia Relax Room
-    </footer>
-  </div>
 </body>
 </html>
