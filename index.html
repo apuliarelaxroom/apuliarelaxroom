@@ -2,77 +2,83 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Apulia Relax Room</title>
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: url('background.jpg') no-repeat center center fixed;
+      font-family: 'Helvetica Neue', sans-serif;
+      background: url('1.jpg') no-repeat center center fixed;
       background-size: cover;
       color: white;
     }
-    nav {
-      position: fixed;
+    header {
+      background-color: rgba(0, 0, 0, 0.4);
+      padding: 20px 0;
+      position: sticky;
       top: 0;
-      width: 100%;
-      background: rgba(0, 0, 0, 0.5);
-      padding: 15px 0;
-      text-align: center;
       z-index: 1000;
+      display: flex;
+      justify-content: center;
+      backdrop-filter: blur(5px);
     }
     nav a {
-      color: white;
+      margin: 0 25px;
       text-decoration: none;
-      margin: 0 20px;
+      color: white;
+      font-size: 1.2em;
       font-weight: bold;
-      font-size: 18px;
     }
-    .logo {
-      margin-top: 100px;
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .content {
       text-align: center;
+      padding: 100px 20px;
+      background: rgba(0, 0, 0, 0.4);
     }
-    .logo img {
-      max-width: 280px;
+    .content h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
     }
-    .desc, .contacts {
+    .content p {
+      font-size: 1.3em;
       max-width: 800px;
-      margin: 30px auto;
-      text-align: center;
-      font-size: 18px;
-      line-height: 1.6;
-      background-color: rgba(0, 0, 0, 0.4);
-      padding: 20px;
-      border-radius: 10px;
+      margin: 0 auto;
     }
-    .contacts a {
-      color: #fff;
+    .footer {
+      text-align: center;
+      margin-top: 60px;
+      font-size: 1.1em;
+    }
+    .footer a {
+      color: white;
       text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="servizi.html">I nostri servizi</a>
-    <a href="galleria.html">Galleria</a>
-    <a href="prenota.html">Prenota</a>
-  </nav>
-  <div class="logo">
-    <img src="logo.png" alt="Logo Apulia Relax Room">
-  </div>
-  <div class="desc">
-    Apulia Relax Room è una caratteristica Tavernetta a botte con accesso autonomo tramite codice PIN e comodo ascensore.
-    Include vasca idromassaggio riscaldata, Wi-Fi, TV, controllo luci touch e arredamento tipico del posto con botti refrigerate
-    per spillare il vino Primitivo di Manduria. Ideale per un soggiorno rilassante nel cuore del centro storico di Manduria.
-  </div>
-  <div class="contacts">
-    📍 Via Nicola Donadio 10, Manduria (TA)<br><br>
-    📱 <a href="https://wa.me/393396361081">Scrivici su WhatsApp</a><br><br>
-    🌐 <a href="https://www.instagram.com/apuliarelaxroom/">Instagram</a> |
-    <a href="https://www.facebook.com/apuliarelaxroom">Facebook</a><br><br>
-    CIS: TA07301291000032252<br>
-    CIN: IT073012C200073011
+  <header>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="servizi.html">I nostri servizi</a>
+      <a href="galleria.html">Galleria</a>
+      <a href="prenota.html">Prenota</a>
+    </nav>
+  </header>
+  <div class="content">
+    <img src="logo.png" alt="Apulia Logo" style="max-width: 300px; margin-bottom: 40px;">
+    <p>
+      Apulia Relax Room è una caratteristica Tavernetta a botte con accesso autonomo tramite codice PIN e comodo ascensore.
+      Include vasca idromassaggio riscaldata, Wi-Fi, TV, controllo luci touch per creare atmosfere uniche e arredamento tipico del posto con botti refrigerate per spillare il vino Primitivo di Manduria.
+      Ideale per un soggiorno rilassante nel cuore del centro storico di Manduria.
+    </p>
+    <div class="footer">
+      📍 Via Nicola Donadio 10, Manduria (TA) <br>
+      📲 <a href="https://wa.me/393478254162">Scrivici su WhatsApp</a> <br><br>
+      Seguici su: <strong>Instagram</strong> | <strong>Facebook</strong>
+    </div>
   </div>
 </body>
 </html>
