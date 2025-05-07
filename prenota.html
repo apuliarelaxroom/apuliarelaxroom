@@ -2,9 +2,7 @@
 <html lang="it">
  <head>
   <meta charset="utf-8"/>
-  <title>
-   Prenota il Tuo Soggiorno
-  </title>
+  <title>Prenota il Tuo Soggiorno</title>
   <style>
    body {
             font-family: Arial, sans-serif;
@@ -59,162 +57,82 @@
             font-style: italic;
             margin-top: 10px;
         }
-    
-
-nav {
-    background: rgba(0, 0, 0, 0.7);
-    text-align: center;
-    padding: 1em 0;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-nav a {
-    color: white;
-    text-decoration: none;
-    margin: 0 1.5em;
-    font-weight: bold;
-    font-size: 1.2em;
-}
+        nav {
+            background: rgba(0, 0, 0, 0.7);
+            text-align: center;
+            padding: 1em 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1.5em;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
   </style>
  </head>
  <body>
   <nav>
-   <a href="index.html">
-    Home
-   </a>
-   <a href="servizi.html">
-    I nostri servizi
-   </a>
-   <a href="galleria.html">
-    Galleria
-   </a>
-   <a href="prenota.html">
-    Prenota
-   </a>
+   <a href="index.html">Home</a>
+   <a href="servizi.html">I nostri servizi</a>
+   <a href="galleria.html">Galleria</a>
+   <a href="prenota.html">Prenota</a>
   </nav>
-  <h1>
-   Prenota il tuo soggiorno
-  </h1>
+  <h1>Prenota il tuo soggiorno</h1>
   <form id="bookingForm">
-   <label>
-    Nome:
-    <input name="nome" required="" type="text"/>
-   </label>
-   <label>
-    Cognome:
-    <input name="cognome" required="" type="text"/>
-   </label>
-   <label>
-    Cellulare:
-    <input name="telefono" required="" type="tel"/>
-   </label>
-   <label>
-    Email:
-    <input name="email" required="" type="email"/>
-   </label>
-   <label>
-    Data del soggiorno:
-    <input name="data" required="" type="date"/>
-   </label>
-   <label>
-    Quante persone? (min. 13 anni, €80 a persona):
+   <label>Nome:<input name="nome" required="" type="text"/></label>
+   <label>Cognome:<input name="cognome" required="" type="text"/></label>
+   <label>Cellulare:<input name="telefono" required="" type="tel"/></label>
+   <label>Email:<input name="email" required="" type="email"/></label>
+   <label>Data del soggiorno:<input name="data" required="" type="date"/></label>
+   <label>Quante persone? (min. 13 anni, €80 a persona):
     <select id="persone" name="persone" required="">
-     <option value="1">
-      1 persona (€80)
-     </option>
-     <option value="2">
-      2 persone (€160)
-     </option>
-     <option value="3">
-      3 persone (€240)
-     </option>
-     <option value="4">
-      4 persone (€320)
-     </option>
+     <option value="1">1 persona (€80)</option>
+     <option value="2">2 persone (€160)</option>
+     <option value="3">3 persone (€240)</option>
+     <option value="4">4 persone (€320)</option>
     </select>
    </label>
-   <h3>
-    Servizi extra:
-   </h3>
-   <div class="extras">
-    <label>
-     🍷 Spillatura di Rosato (€15)
-    </label>
-    <input class="extra" type="checkbox" value="15"/>
-   </div>
-   <div class="extras">
-    <label>
-     🍱 Aperitivo di Benvenuto (€50)
-    </label>
-    <input class="extra" type="checkbox" value="50"/>
-   </div>
-   <div class="extras">
-    <label>
-     🍾 Prosecco Mionetto (€20)
-    </label>
-    <input class="extra" type="checkbox" value="20"/>
-   </div>
-   <div class="extras">
-    <label>
-     🧁 Vassoio di Pasticcini (€25)
-    </label>
-    <input class="extra" type="checkbox" value="25"/>
-   </div>
-   <div class="extras">
-    <label>
-     🌹 Addobbo romantico (€30)
-    </label>
-    <input class="extra" type="checkbox" value="30"/>
-   </div>
-   <div class="extras">
-    <label>
-     💆‍♂️ Massaggio 40 minuti (€60)
-    </label>
-    <input class="extra" type="checkbox" value="60"/>
-   </div>
-   <div class="extras">
-    <label>
-     💦 Piscina Esterna (€30)
-    </label>
-    <input class="extra" type="checkbox" value="30"/>
-   </div>
+   <h3>Servizi extra:</h3>
+   <div class="extras"><label>🍷 Spillatura di Rosato (€15)</label><input class="extra" type="checkbox" value="15"/></div>
+   <div class="extras"><label>🍱 Aperitivo di Benvenuto (€50)</label><input class="extra" type="checkbox" value="50"/></div>
+   <div class="extras"><label>🍾 Prosecco Mionetto (€20)</label><input class="extra" type="checkbox" value="20"/></div>
+   <div class="extras"><label>🧁 Vassoio di Pasticcini (€25)</label><input class="extra" type="checkbox" value="25"/></div>
+   <div class="extras"><label>🌹 Addobbo romantico (€30)</label><input class="extra" type="checkbox" value="30"/></div>
+   <div class="extras"><label>💆‍♂️ Massaggio 40 minuti (€60)</label><input class="extra" type="checkbox" value="60"/></div>
+   <div class="extras"><label>💦 Piscina Esterna (€30)</label><input class="extra" type="checkbox" value="30"/></div>
+   <p>☕ <strong>Colazione omaggio</strong></p>
+   <label>Note:<textarea name="note"></textarea></label>
+   <div class="note">Compila il modulo per ricevere conferma sulla disponibilità.</div>
    <p>
-    ☕
-    <strong>
-     Colazione omaggio
-    </strong>
+    <strong>Check-in:</strong> dalle 18:00 alle 21:00<br/>
+    <strong>Check-out:</strong> entro le 10:00<br/>
+    <strong>Pagamento:</strong> 50% acconto, saldo all’arrivo
    </p>
-   <label>
-    Note:
-    <textarea name="note"></textarea>
-   </label>
-   <div class="note">
-    Compila il modulo per ricevere conferma sulla disponibilità.
-   </div>
-   <p>
-    <strong>
-     Check-in:
-    </strong>
-    dalle 18:00 alle 21:00
-    <br/>
-    <strong>
-     Check-out:
-    </strong>
-    entro le 10:00
-    <br/>
-    <strong>
-     Pagamento:
-    </strong>
-    50% acconto, saldo all’arrivo
-   </p>
-   <div class="total" id="totale">
-    Totale: €80
-   </div>
-   <button onclick="inviaWhatsApp()" type="button">
-    Prenota su WhatsApp
-   </button>
+   <div class="total" id="totale">Totale: €80</div>
+   <button onclick="inviaWhatsApp()" type="button">Prenota su WhatsApp</button>
   </form>
+
+  <hr style="margin: 40px 0; border: 1px solid #ccc;">
+
+  <h2 style="text-align: center;">🌞 Day Use – Esperienza di Coppia</h2>
+  <p style="text-align: center; max-width: 700px; margin: auto; background: rgba(0,0,0,0.6); padding: 20px; border-radius: 10px;">
+    Vivi un momento di relax esclusivo anche senza pernotto!<br><br>
+    <strong>Fascia oraria:</strong> dalle <strong>12:00 alle 16:00</strong><br>
+    <strong>Prezzo:</strong> <span style="color: lightgreen;">€100,00 a coppia</span><br><br>
+    Incluso nel servizio:
+    <ul style="text-align: left; max-width: 600px; margin: auto;">
+      <li>Accesso alla stanza per 4 ore</li>
+      <li>Vino Rosato Primitivo fresco in omaggio 🍷</li>
+      <li>Vasca idromassaggio riscaldata</li>
+      <li>Ambiente climatizzato e luci touch</li>
+      <li>Caffè, tisane e Wi-Fi inclusi</li>
+    </ul>
+  </p>
+
   <script>
    const extraCheckboxes = document.querySelectorAll('.extra');
     const personeSelect = document.getElementById('persone');
@@ -257,5 +175,49 @@ nav a {
         window.open(`https://wa.me/${numero}?text=${messaggio}`, '_blank');
     }
   </script>
- </body>
+ 
+<hr style="margin: 40px 0; border: 1px solid #ccc;">
+<h3 style="text-align: center;">Servizi aggiuntivi (valido anche per Day Use):</h3>
+<form style="max-width: 700px; margin: auto; background: rgba(0,0,0,0.6); padding: 20px; border-radius: 10px;" id="dayUseForm">
+  <div class="extras"><label>🍱 Aperitivo di Benvenuto (€50)</label><input class="extra-day" type="checkbox" value="50"/></div>
+  <div class="extras"><label>🍾 Prosecco Mionetto (€20)</label><input class="extra-day" type="checkbox" value="20"/></div>
+  <div class="extras"><label>🧁 Vassoio di Pasticcini (€25)</label><input class="extra-day" type="checkbox" value="25"/></div>
+  <div class="extras"><label>🌹 Addobbo romantico (€30)</label><input class="extra-day" type="checkbox" value="30"/></div>
+  <div class="extras"><label>💆‍♂️ Massaggio 40 minuti (€60)</label><input class="extra-day" type="checkbox" value="60"/></div>
+  <div class="extras"><label>💦 Piscina Esterna (€30)</label><input class="extra-day" type="checkbox" value="30"/></div>
+  <div class="total" id="totaleDayUse">Totale Day Use: €100</div>
+  <button onclick="inviaDayUse()" type="button">Prenota Day Use su WhatsApp</button>
+</form>
+
+<script>
+  const dayUseExtras = document.querySelectorAll('.extra-day');
+  const totaleDayUse = document.getElementById('totaleDayUse');
+
+  function calcolaTotaleDayUse() {
+      let totale = 100;
+      dayUseExtras.forEach(c => {
+          if (c.checked) totale += parseInt(c.value);
+      });
+      totaleDayUse.textContent = `Totale Day Use: €${totale}`;
+  }
+
+  dayUseExtras.forEach(c => c.addEventListener('change', calcolaTotaleDayUse));
+
+  function inviaDayUse() {
+      let extras = [];
+      dayUseExtras.forEach(c => {
+          if (c.checked) extras.push(c.parentElement.innerText.trim());
+      });
+      const total = totaleDayUse.textContent;
+
+      let messaggio = `Prenotazione Day Use Apulia Relax Room:%0A`;
+      messaggio += `Servizi Extra: ${extras.join(', ')}%0A${total}%0A`;
+      messaggio += `Fascia oraria: 12:00 - 16:00 | Prezzo base: €100 | Vino incluso 🍷`;
+
+      const numero = '393884920055';
+      window.open(`https://wa.me/${numero}?text=${messaggio}`, '_blank');
+  }
+</script>
+
+</body>
 </html>
