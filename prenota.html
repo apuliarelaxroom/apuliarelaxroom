@@ -170,48 +170,8 @@
 
         const numero = '393884920055';
         window.open(`https://wa.me/${numero}?text=${messaggio}`, '_blank');
-    }
-  </script>
-<hr style="margin: 40px 0; border: 1px solid #ccc;"/>
-<h3 style="color: white; text-shadow: 1px 1px 3px rgba(0,0,0,0.7); margin-top: 30px; text-align: center;">Servizi aggiuntivi (valido anche per Day Use):</h3>
-<form id="dayUseForm" style="max-width: 700px; margin: auto; background: linear-gradient(to bottom right, rgba(0,0,0,0.7), rgba(0,0,0,0.4)); padding: 20px; border-radius: 10px;">
-<div class="extras"><label>🍱 Aperitivo di Benvenuto (€50)</label><input class="extra-day" type="checkbox" value="50"/></div>
-<div class="extras"><label>🍾 Prosecco Mionetto (€20)</label><input class="extra-day" type="checkbox" value="20"/></div>
-<div class="extras"><label>🧁 Vassoio di Pasticcini (€25)</label><input class="extra-day" type="checkbox" value="25"/></div>
-<div class="extras"><label>🌹 Addobbo romantico (€30)</label><input class="extra-day" type="checkbox" value="30"/></div>
-<div class="extras"><label>💆‍♂️ Massaggio 40 minuti (€60)</label><input class="extra-day" type="checkbox" value="60"/></div>
-<div class="extras"><label>💦 Piscina Esterna (€30)</label><input class="extra-day" type="checkbox" value="30"/></div>
-<div class="total" id="totaleDayUse">Totale Day Use: €100</div>
-<button onclick="inviaDayUse()" type="button">Prenota Day Use su WhatsApp</button>
-</form>
-<script>
-  const dayUseExtras = document.querySelectorAll('.extra-day');
-  const totaleDayUse = document.getElementById('totaleDayUse');
 
-  function calcolaTotaleDayUse() {
-      let totale = 100;
-      dayUseExtras.forEach(c => {
-          if (c.checked) totale += parseInt(c.value);
-      });
-      totaleDayUse.textContent = `Totale Day Use: €${totale}`;
-  }
 
-  dayUseExtras.forEach(c => c.addEventListener('change', calcolaTotaleDayUse));
-
-  function inviaDayUse() {
-      let extras = [];
-      dayUseExtras.forEach(c => {
-          if (c.checked) extras.push(c.parentElement.innerText.trim());
-      });
-      const total = totaleDayUse.textContent;
-
-      let messaggio = `Prenotazione Day Use Apulia Relax Room:%0A`;
-      messaggio += `Servizi Extra: ${extras.join(', ')}%0A${total}%0A`;
-      messaggio += `Fascia oraria: 12:00 - 16:00 | Prezzo base: €100 | Vino incluso 🍷`;
-
-      const numero = '393884920055';
-      window.open(`https://wa.me/${numero}?text=${messaggio}`, '_blank');
-  }
 </script>
 </body>
 </html>
