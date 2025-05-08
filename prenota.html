@@ -73,7 +73,29 @@
             font-weight: bold;
             font-size: 1.2em;
         }
-  </style>
+  
+        .total {
+            font-size: 1.4em;
+            margin: 20px 0;
+            font-weight: bold;
+            background-color: #ffc107;
+            color: #000;
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+        .total.flash {
+            background-color: #ff5722 !important;
+        }
+        .total-message {
+            font-size: 0.9em;
+            font-style: italic;
+            text-align: center;
+            margin-top: -10px;
+            color: #ccc;
+        }
+    </style>
 </head>
 <body>
 <nav>
@@ -113,7 +135,7 @@
 <strong>Check-out:</strong> entro le 10:00<br/>
 <strong>Pagamento:</strong> 50% acconto, saldo all’arrivo
    </p>
-<div class="total" id="totale">Totale: €80</div>
+<div class="total" id="totale">Totale: €80</div><div class="total-message">Il totale include il costo del pernottamento e dei servizi selezionati.</div>
 <button onclick="inviaWhatsApp()" type="button">Prenota su WhatsApp</button>
 </form>
 <hr style="margin: 40px 0; border: 1px solid #ccc;"/>
@@ -124,12 +146,17 @@
     const personeSelect = document.getElementById('persone');
     const totaleElement = document.getElementById('totale');
 
+    
     function calcolaTotale() {
         const persone = parseInt(personeSelect.value);
         let totale = persone * 80;
-        extraCheckboxes.forEach(c => {
-            if (c.checked) totale += parseInt(c.value);
-        });
+        extraCheckboxes.forEach(c => { if (c.checked) totale += parseInt(c.value); });
+        
+        totaleElement.classList.add('flash');
+        setTimeout(() => totaleElement.classList.remove('flash'), 300);
+        totaleElement.textContent = `Totale: €${totale}`;
+    }
+    );
         totaleElement.textContent = `Totale: €${totale}`;
     }
 
@@ -161,6 +188,7 @@
         window.open(`https://wa.me/${numero}?text=${messaggio}`, '_blank');
 
 
-</script>
+
+    document.addEventListener("DOMContentLoaded", calcolaTotale);</script>
 </body>
 </html>
