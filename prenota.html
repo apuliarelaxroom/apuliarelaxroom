@@ -142,53 +142,22 @@
 <div style="text-align: center; max-width: 700px; margin: auto; background: rgba(0, 0, 0, 0.75); padding: 20px; border-radius: 10px; color: white;"><p style="text-align: center; max-width: 700px; margin: auto; background: rgba(0, 0, 0, 0.75); padding: 20px; border-radius: 10px; color: white;">
 </p></div>
 <script>
-   const extraCheckboxes = document.querySelectorAll('.extra');
+    const extraCheckboxes = document.querySelectorAll('.extra');
     const personeSelect = document.getElementById('persone');
     const totaleElement = document.getElementById('totale');
 
-    
     function calcolaTotale() {
         const persone = parseInt(personeSelect.value);
         let totale = persone * 80;
         extraCheckboxes.forEach(c => { if (c.checked) totale += parseInt(c.value); });
-        
         totaleElement.classList.add('flash');
         setTimeout(() => totaleElement.classList.remove('flash'), 300);
-        totaleElement.textContent = `Totale: €${totale}`;
-    }
-    );
         totaleElement.textContent = `Totale: €${totale}`;
     }
 
     personeSelect.addEventListener('change', calcolaTotale);
     extraCheckboxes.forEach(c => c.addEventListener('change', calcolaTotale));
-
-    function inviaWhatsApp() {
-        const form = document.forms['bookingForm'];
-        const nome = form.nome.value;
-        const cognome = form.cognome.value;
-        const telefono = form.telefono.value;
-        const email = form.email.value;
-        const data = form.data.value;
-        const persone = form.persone.value;
-        const note = form.note.value;
-        let extras = [];
-        extraCheckboxes.forEach(c => {
-            if (c.checked) extras.push(c.parentElement.innerText.trim());
-        });
-        const total = totaleElement.textContent;
-
-        let messaggio = `Prenotazione Apulia Relax Room:%0A`;
-        messaggio += `Nome: ${nome}%0ACognome: ${cognome}%0ACellulare: ${telefono}%0AEmail: ${email}%0A`;
-        messaggio += `Data: ${data}%0APersone: ${persone}%0AServizi Extra: ${extras.join(', ')}%0A`;
-        messaggio += `Note: ${note}%0A${total}%0A`;
-        messaggio += `Check-in 18–21 | Check-out entro le 10 | Pagamento: 50% acconto + saldo all’arrivo`;
-
-        const numero = '393884920055';
-        window.open(`https://wa.me/${numero}?text=${messaggio}`, '_blank');
-
-
-
-    document.addEventListener("DOMContentLoaded", calcolaTotale);</script>
+    calcolaTotale();
+    </script>
 </body>
 </html>
